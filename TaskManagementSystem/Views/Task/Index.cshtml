@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>รายการงาน</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">เพิ่มงานใหม่</a> <!-- ไปหน้าเพิ่มงงานด้วย asp-action="Create" -->
+
+<table class="table table-bordered table-striped table-dark ">
+    <thead> <!--หัวของTable-->
+        <tr>
+            <th>ชื่องาน</th>
+            <th>วันที่กำหนดเสร็จ</th>
+            <th>สถานะ</th>
+            <th>รายละเอียด</th>
+            <th>การจัดการ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--จะวนตามข้อมูลในmodel-->
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.DueDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <span class="status @(task.IsCompleted ? "text-success" :   // คำนวณสีสถานะของงาน IsCompleted= True จะเป็นสีเขียว ถ้าไม้จะดูว่า DueDate < DateTime.Now ? ใช่จะเป็นสีแดง ไม่จะสีเหลือง
+                                    (task.DueDate < DateTime.Now ? "text-danger" : "text-warning"))">
+                        @(task.IsCompleted ? "เสร็จสิ้น" :                           // คำนวณสถานะของงาน IsCompleted= True จะเป็นเสร็จสิ้น ถ้าไม้จะดูว่า DueDate < DateTime.Now ? ใช่จะเป็นเลยกำหนด ไม่จะอยู่ในกำหนด
+                            (task.DueDate < DateTime.Now ? "เลยกำหนด" : "อยู่ในกำหนด"))
+                    </span>
+                </td>
+                <td>@task.Details</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-primary btn-sm">แก้ไข</a> <!-- ไปหน้าเพิ่มงงานด้วย asp-action="Create" -->
+                    <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-danger btn-sm" onclick="return confirm('คุณต้องการลบงานนี้หรือไม่?');">ลบ</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

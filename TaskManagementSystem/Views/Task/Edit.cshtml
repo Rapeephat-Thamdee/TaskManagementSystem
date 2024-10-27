@@ -1,0 +1,35 @@
+﻿@model TaskManagementSystem.Models.Task
+@{
+    ViewData["Title"] = "สร้างงานใหม่";
+}
+
+<h2>สร้างงานใหม่</h2>
+
+
+<form asp-action="Edit" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">ชื่องาน</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DueDate" class="control-label">วันที่กำหนดเสร็จ</label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Details" class="control-label">รายละเอียด</label>
+        <textarea asp-for="Details" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>
+            <input asp-for="IsCompleted" type="checkbox" /> งานเสร็จแล้ว
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">บันทึก</button>
+    <a asp-action="Index" class="btn btn-secondary">กลับ</a>
+</form>
+
+
+
