@@ -7,7 +7,7 @@
 
 ### 2. กําหนดConnectionStrings
 
--   ทําการเปลี่ยนแปลงConnectionStringsต่อในแฟ้ม`AppSettings.json`
+-   ทําการเปลี่ยนแปลงConnectionStringsใน`AppSettings.json`
 
 ### 3. อัพเดตข้อมูล
 
