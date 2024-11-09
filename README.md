@@ -3,7 +3,7 @@
 
 -   [Visual Studio 2022](https://visualstudio.microsoft.com/downloads)  หรือ  [Visual Studio Code](https://code.visualstudio.com/)
 -   [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- SQL Server (แนะนํา) - สามารถใช้ฐานข้อมูลอื่นได้ แต่ตรวจสอบให้แน่ใจว่ามีConnectionStringsที่ถูกต้อง
+- SQL Server -สามารถใช้ฐานข้อมูลอื่นได้ แต่ตรวจสอบให้แน่ใจว่ามีConnectionStringsที่ถูกต้อง
 
 ### 2. กําหนดConnectionStrings
 
